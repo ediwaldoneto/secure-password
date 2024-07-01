@@ -1,7 +1,6 @@
-package github.com.ediwaldoneto.secure.password;
+package github.com.ediwaldoneto.secure.password.service;
 
 import github.com.ediwaldoneto.secure.password.exception.PasswordCriteriaException;
-import github.com.ediwaldoneto.secure.password.service.PasswordService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,7 +12,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-class PasswordServiceTests {
+class PasswordServiceTest {
 
     @InjectMocks
     private PasswordService passwordService;
