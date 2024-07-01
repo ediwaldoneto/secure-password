@@ -2,7 +2,6 @@ package github.com.ediwaldoneto.secure.password.service;
 
 import github.com.ediwaldoneto.secure.password.exception.PasswordCriteriaException;
 import org.springframework.stereotype.Service;
-
 import java.util.HashMap;
 import java.util.Map;
 
