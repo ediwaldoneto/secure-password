@@ -16,13 +16,11 @@ public class PasswordService {
         if (password.length() < 8) {
             validationResults.put("length", "A senha deve ter pelo menos 8 caracteres.");
         }
-        boolean hasUpper = false, hasLower = false, hasDigit = false, hasSpecial = false;
-        for (char c : password.toCharArray()) {
-            if (Character.isUpperCase(c)) hasUpper = true;
-            if (Character.isLowerCase(c)) hasLower = true;
-            if (Character.isDigit(c)) hasDigit = true;
-            if (!Character.isLetterOrDigit(c)) hasSpecial = true;
-        }
+        boolean hasUpper = password.chars().anyMatch(Character::isUpperCase);
+        boolean hasLower = password.chars().anyMatch(Character::isLowerCase);
+        boolean hasDigit = password.chars().anyMatch(Character::isDigit);
+        boolean hasSpecial = password.chars().anyMatch(c -> !Character.isLetterOrDigit(c));
+
         if (!hasUpper) {
             validationResults.put("uppercase", "A senha deve conter pelo menos uma letra maiúscula.");
         }
@@ -39,7 +37,7 @@ public class PasswordService {
         if (!validationResults.isEmpty()) {
             throw new PasswordCriteriaException(validationResults.toString());
         }
-        return null;
+        return validationResults;
     }
 }
 
